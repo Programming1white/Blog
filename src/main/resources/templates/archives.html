@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+    <link rel="shortcut icon" href="../static/images/logo_favicon.ico"/>
+    <title>归档</title>
+</head>
+<body>
+    <!--导航-->
+    <nav th:replace="_fragments :: menu(4)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">Logo</h2>
+                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <a href="#" class="active m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+                <div class="right m-item item m-mobile-hide">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" placeholder="搜索">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+    <!--中间内容-->
+    <div class="m-container m-padded-tb-big"><!--m-container-->
+        <div class="ui container">
+            <!--header-->
+            <div class="ui top attached padded segment">
+                <div class="ui middle aligned two column grid">
+                    <div class="column">
+                        <h3 class="ui teal header">归档</h3>
+                    </div>
+                    <div class="right aligned column">
+                        共<h2 class="ui orange header m-inline-block m-text-thin" th:text="${blogCount}"> 114 </h2> 篇博客
+                    </div>
+                </div>
+            </div>
+
+
+            <th:block th:each="item : ${archiveMap}">
+                <!--2020年归档-->
+                <h3 class="ui center aligned header" th:text="${item.key}">2020</h3>
+                <div class="ui fluid vertical menu">
+                    <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${item.value}">
+                    <span>
+                        <i class="mini teal circle icon"></i><span th:text="${blog.title}">关于可以练习的清单</span>
+                        <div class="ui teal basic left pointing label m-padded-tb-mini" th:text="${#dates.format(blog.updateTime,'MMdd')}">7月1日</div>
+                    </span>
+                        <div class="ui orange basic left pointing label m-padded-tb-mini" th:text="${blog.flag}">原创</div>
+                    </a>
+
+                    <!--/*-->
+                    <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 智慧男孩要秃头
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">6月26日</div>
+                    </span>
+                        <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                    </a>
+                    <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 长大要嫁练习册
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">5月18日</div>
+                    </span>
+                        <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                    </a>
+                    <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 玉米地里吃过亏
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">4月20日</div>
+                    </span>
+                        <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                    </a>
+                    <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 幼儿园高材生
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">4月1日</div>
+                    </span>
+                        <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                    </a>
+                    <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 总有逗比挑衅本宫
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">3月18日</div>
+                    </span>
+                        <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                    </a>
+                    <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 人潮拥挤我尿急
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">3月6日</div>
+                    </span>
+                        <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                    </a>
+                    <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 月亮是我磨弯滴
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">2月24日</div>
+                    </span>
+                        <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                    </a>
+                    <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 白雪公主的后妈
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">2月7日</div>
+                    </span>
+                        <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                    </a>
+                    <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 原谅贩卖机
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">1月28日</div>
+                    </span>
+                        <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                    </a>
+                    <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 香蕉你个不娜娜
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">1月16日</div>
+                    </span>
+                        <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                    </a>
+                    <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 毛爷爷我男神
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">1月1日</div>
+                    </span>
+                        <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                    </a>
+                    <!--*/-->
+                </div>
+            </th:block>
+
+
+            <!--/*-->
+            <!--2019年归档-->
+            <h3 class="ui center aligned header">2019</h3>
+            <div class="ui fluid vertical menu">
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 夜袭寡妇村
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">12月1日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 元气少女谢广坤
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">10月26日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 热心网友小王
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">8月18日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 尼姑庵的男保安
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">5月20日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 魔法少女郭德纲
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">4月1日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 是你的胖虎吗
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">3月28日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 国家特级不保护动物
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">3月16日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 草莓锡纸烫
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">3月4日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 我怀了时间的孩子
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">2月26日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 兔子的尾巴掉了
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">2月10日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 罗密欧与猪过夜
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">1月16日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 哈利波特别大
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">1月1日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+            </div>
+
+            <!--2018年归档-->
+            <h3 class="ui center aligned header">2018</h3>
+            <div class="ui fluid vertical menu">
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 社会主义接班人
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">12月21日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 素质教育的漏网之鱼
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">10月18日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 国家一级抬杠运动员
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">9月18日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 每天屁大点事分享者
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">6月20日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 喝了酱油耍酒疯
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">4月18日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 卖火柴的小红帽
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">3月26日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 狗屎味的小仙女
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">3月18日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 二到深处自然萌
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">3月10日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 我是祖国的食人花
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">3月1日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 瘦成闪电劈死你
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">2月18日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 原来一直叫一天吃八顿
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">2月10日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="mini teal circle icon"></i> 2018年江西省高考状元老乡
+                        <div class="ui teal basic left pointing label m-padded-tb-mini">1月1日</div>
+                    </span>
+                    <div class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+            </div>
+            <!--*/-->
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <!--底部footer-->
+    <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../static/images/wechar.png" class="ui rounded image" style="width: 110px"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">用户故事（User Story）</a>
+                        <a href="#" class="item">关于刻意练习的清单</a>
+                        <a href="#" class="item">失败要趁早</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Email：2425475564@qq.com</a>
+                        <a href="#" class="item">Tel：18270428344</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">Lirenmi</h4>
+                    <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客，会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020 - 2020  CPP   Designed by Jie you</p>
+        </div>
+    </footer>
+
+
+    <!--/*/<th:block th:replace="_fragments :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <!--/*/</th:block>/*/-->
+
+    <script>
+        $('.menu.toggle').click(function ()
+        {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+    </script>
+</body>
+</html>
